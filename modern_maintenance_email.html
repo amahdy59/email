@@ -38,10 +38,11 @@
         /* Interactive Micro-animations */
         .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) !important; }
-        
-        /* CTA Button Hover */
-        .btn-cta { transition: background-color 0.2s ease, transform 0.2s ease; }
-        .btn-cta:hover { background-color: #1d4ed8 !important; transform: translateY(-1px); }
+
+        /* SVG Icon styling (light mode default) */
+        .svg-icon { color: #0284c7; }
+        .svg-icon-warning { color: #b45309; }
+        .svg-icon-server { color: #ffffff; }
 
         @media screen and (max-width: 600px) {
             .fluid { width: 100% !important; max-width: 100% !important; display: block !important; }
@@ -51,7 +52,6 @@
         }
         
         @media screen and (max-width: 400px) {
-            /* Extra safety for ultra-narrow devices */
             .stack-column { margin-bottom: 24px !important; }
         }
 
@@ -68,7 +68,10 @@
             .border-card, .border-main { border-color: #374151 !important; border-width: 1px !important; border-style: solid !important; }
             .bg-icon-container { background-color: #0f172a !important; } 
             .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
-            /* Glowing Icon Swap for Dark Mode */
+            
+            /* High-contrast crisp SVGs in Dark Mode */
+            .svg-icon { color: #38bdf8 !important; }
+            .svg-icon-warning { color: #fbbf24 !important; }
             img.glow-icon { filter: brightness(1.3) drop-shadow(0 0 4px rgba(56,189,248,0.5)) !important; }
         }
 
@@ -84,6 +87,8 @@
         [data-ogsb] .border-card, [data-ogsb] .border-main { border-color: #374151 !important; border-width: 1px !important; border-style: solid !important; }
         [data-ogsb] .bg-icon-container { background-color: #0f172a !important; }
         [data-ogsb] .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
+        [data-ogsb] .svg-icon { color: #38bdf8 !important; }
+        [data-ogsb] .svg-icon-warning { color: #fbbf24 !important; }
         [data-ogsb] img.glow-icon { filter: brightness(1.3) drop-shadow(0 0 4px rgba(56,189,248,0.5)) !important; }
     </style>
 </head>
@@ -102,7 +107,7 @@
         
         <table role="presentation" class="main bg-card border-main" width="100%" max-width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="background-color: #ffffff; max-width: 600px; margin: 0 auto; width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             
-            <!-- HERO SECTION with Cinematic Gradient -->
+            <!-- HERO SECTION -->
             <tr>
                 <td align="center" valign="top" style="background-color: #03194B;">
                     <!--[if gte mso 9]>
@@ -113,14 +118,20 @@
                     <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" background="https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png" style="background-image: linear-gradient(90deg, rgba(3,25,75,0.95) 0%, rgba(3,25,75,0.4) 60%, rgba(3,25,75,0) 100%), url('https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png'); background-color: #03194B; background-position: center; background-size: cover;">
                         <tr>
                             <td class="mobile-pad" align="left" valign="middle" style="padding: 24px 32px;">
-                                <!-- Removed boxy background, placed content directly on gradient -->
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="max-width: 380px;">
                                     <tr>
                                         <td valign="top" style="padding-right: 16px;">
                                             <table role="presentation" width="48" height="48" border="0" cellpadding="0" cellspacing="0" style="background-color: rgba(255,255,255,0.15); border-radius: 50%;">
                                                 <tr>
                                                     <td align="center" valign="middle" width="48" height="48" style="padding: 0;">
-                                                        <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-server.svg" width="24" height="24" alt="Server Icon" style="display: block; width: 24px; height: 24px; margin: 0 auto;">
+                                                        <!--[if mso]>
+                                                        <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-server.svg" width="24" height="24" alt="Server" style="display:block;" />
+                                                        <![endif]-->
+                                                        <!--[if !mso]><!-->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-server" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px; color: #ffffff;">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" />
+                                                        </svg>
+                                                        <!--<![endif]-->
                                                     </td>
                                                 </tr>
                                             </table>
@@ -145,9 +156,9 @@
                 </td>
             </tr>
 
-            <!-- BODY CONTENT (Semantic Landmark) -->
+            <!-- BODY CONTENT -->
             <tr>
-                <td class="mobile-pad" align="center" valign="top" style="padding: 48px;" role="main" aria-label="Email Content">
+                <td class="mobile-pad" align="center" valign="top" style="padding: 40px 48px;" role="main" aria-label="Email Content">
                     
                     <!-- MAINTENANCE DETAILS -->
                     <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
@@ -164,11 +175,18 @@
                                         <td class="stack-column" width="32%" align="center" valign="top">
                                             <table role="presentation" class="border-card bg-card hover-lift" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
-                                                    <td align="center" style="padding: 24px 8px;">
+                                                    <td align="center" style="padding: 16px 8px;">
                                                         <table role="presentation" class="bg-icon-container" width="48" height="48" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 16px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="48" height="48" style="padding: 0;">
-                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-calendar.svg" width="24" height="24" alt="Calendar Icon" style="display: block; width: 24px; height: 24px; margin: 0 auto;">
+                                                                    <!--[if mso]>
+                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-calendar.svg" width="24" height="24" alt="Calendar" style="display:block;" />
+                                                                    <![endif]-->
+                                                                    <!--[if !mso]><!-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                                                                    </svg>
+                                                                    <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -185,11 +203,18 @@
                                         <td class="stack-column" width="32%" align="center" valign="top">
                                             <table role="presentation" class="border-card bg-card hover-lift" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
-                                                    <td align="center" style="padding: 24px 8px;">
+                                                    <td align="center" style="padding: 16px 8px;">
                                                         <table role="presentation" class="bg-icon-container" width="48" height="48" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 16px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="48" height="48" style="padding: 0;">
-                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-clock.svg" width="24" height="24" alt="Clock Icon" style="display: block; width: 24px; height: 24px; margin: 0 auto;">
+                                                                    <!--[if mso]>
+                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-clock.svg" width="24" height="24" alt="Clock" style="display:block;" />
+                                                                    <![endif]-->
+                                                                    <!--[if !mso]><!-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                    </svg>
+                                                                    <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -206,11 +231,18 @@
                                         <td class="stack-column" width="32%" align="center" valign="top">
                                             <table role="presentation" class="border-card bg-card hover-lift" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
-                                                    <td align="center" style="padding: 24px 8px;">
+                                                    <td align="center" style="padding: 16px 8px;">
                                                         <table role="presentation" class="bg-icon-container" width="48" height="48" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 16px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="48" height="48" style="padding: 0;">
-                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-hourglass.svg" width="24" height="24" alt="Hourglass Icon" style="display: block; width: 24px; height: 24px; margin: 0 auto;">
+                                                                    <!--[if mso]>
+                                                                    <img class="glow-icon" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-hourglass.svg" width="24" height="24" alt="Hourglass" style="display:block;" />
+                                                                    <![endif]-->
+                                                                    <!--[if !mso]><!-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                    </svg>
+                                                                    <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -229,11 +261,18 @@
                     <!-- WARNING BLOCK -->
                     <table role="presentation" class="bg-warning hover-lift" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px; background-color: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; border-left: 6px solid #f59e0b;">
                         <tr>
-                            <td align="left" valign="top" style="padding: 24px 20px;">
+                            <td align="left" valign="top" style="padding: 16px 20px;">
                                 <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td width="30" valign="top" style="padding-right: 12px;">
-                                            <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-warning.svg" width="24" height="24" alt="Warning Icon" style="display: block; width: 24px; height: 24px;">
+                                            <!--[if mso]>
+                                            <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-warning.svg" width="24" height="24" alt="Warning" style="display:block;" />
+                                            <![endif]-->
+                                            <!--[if !mso]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-warning" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                            <!--<![endif]-->
                                         </td>
                                         <td valign="top">
                                             <p class="text-warning" style="margin: 0; padding: 0 0 8px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #78350f; line-height: 1.5;">Service Impact</p>
@@ -263,25 +302,10 @@
                         </tr>
                     </table>
 
-                    <!-- CALL TO ACTION BUTTON -->
-                    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 48px;">
-                        <tr>
-                            <td align="center">
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td align="center" bgcolor="#2563eb" style="border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);">
-                                            <a href="https://status.advansys.com" class="btn-cta" style="display: block; padding: 14px 32px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; border-radius: 8px; text-align: center; min-width: 140px;">View Status Page</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-
                     <!-- CLOSING -->
                     <table role="presentation" class="bg-closing" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px; background-color: #f0fbff; border: 1px solid #c0eeff; border-radius: 12px;">
                         <tr>
-                            <td align="center" style="padding: 24px;">
+                            <td align="center" style="padding: 16px 24px;">
                                 <p class="text-primary" style="margin: 0; padding: 0 0 12px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: bold; color: #111827; line-height: 1.5;">Thank You</p>
                                 <p class="text-secondary" style="margin: 0 auto; padding: 0 0 16px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; color: #374151; line-height: 1.5; max-width: 400px; text-align: center;">
                                     We appreciate your patience and cooperation as we work to improve our services.
@@ -296,7 +320,7 @@
                     <!-- FOOTER (Semantic Landmark) -->
                     <table role="presentation" class="bg-footer" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; border-radius: 8px;" role="contentinfo" aria-label="Email Footer">
                         <tr>
-                            <td align="center" style="padding: 24px;">
+                            <td align="center" style="padding: 16px;">
                                 <p class="text-footer" style="margin: 0; padding: 0 0 8px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5;">Automated notification - do not reply directly.</p>
                                 <p class="text-footer" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5;">&copy; 2026 Advansys IE. All rights reserved.</p>
                             </td>
