@@ -151,7 +151,7 @@
 
             <!-- BODY CONTENT -->
             <tr>
-                <td class="mobile-pad" align="center" valign="top" style="padding: 40px 48px;" role="main" aria-label="Email Content">
+                <td class="mobile-pad" align="center" valign="top" style="padding: 16px 24px;" role="main" aria-label="Email Content">
                     
                     <!-- MAINTENANCE DETAILS -->
                     <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
@@ -314,5 +314,15 @@
         </table>
         <![endif]-->
     </center>
+    <script>
+        // If the browser is online, dynamically convert relative asset paths to absolute GitHub raw paths.
+        // This ensures that when you select and copy the email from the browser, the clipboard contains
+        // absolute URLs, allowing online email clients (like Gmail and Outlook) to display the graphics.
+        // If you are offline, it retains relative paths so that the local preview renders assets correctly.
+        if (navigator.onLine) {
+            var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
+            document.body.innerHTML = document.body.innerHTML.replace(/assets\//g, baseUrl);
+        }
+    </script>
 </body>
 </html>
