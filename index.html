@@ -299,7 +299,7 @@
                         <tr>
                             <td align="center" style="padding: 16px;">
                                 <p class="text-footer" style="margin: 0; padding: 0 0 8px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5;">Automated notification - do not reply directly.</p>
-                                <p class="text-footer" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5;">&copy; 2026 Advansys IE. All rights reserved.</p>
+                                <p class="text-footer" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5;">&copy; 2026 Advansys IS. All rights reserved.</p>
                             </td>
                         </tr>
                     </table>
@@ -317,64 +317,40 @@
     <script>
         // Copy event listener that swaps relative/local paths to absolute GitHub paths
         // on the clipboard HTML so that pasting into Gmail/Outlook works flawlessly,
-        // while preserving local preview rendering offline.
-        (function() {
-            var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
+        // while preserving local preview rendering offline and packaging CSS styles.
+        document.addEventListener('copy', function(e) {
+            var selection = window.getSelection();
+            if (!selection.rangeCount) return;
             
-            function swapPaths(toAbsolute) {
-                // 1. Update img elements
-                var imgs = document.getElementsByTagName("img");
-                for (var i = 0; i < imgs.length; i++) {
-                    var src = imgs[i].getAttribute("src");
-                    if (src) {
-                        var idx = src.indexOf("assets/");
-                        if (idx !== -1) {
-                            imgs[i].setAttribute("src", (toAbsolute ? baseUrl : "assets/") + src.substring(idx + 7));
-                        }
-                    }
-                }
-                
-                // 2. Update table and td elements
-                var elms = document.querySelectorAll("table, td");
-                for (var i = 0; i < elms.length; i++) {
-                    var bg = elms[i].getAttribute("background");
-                    if (bg) {
-                        var idx = bg.indexOf("assets/");
-                        if (idx !== -1) {
-                            elms[i].setAttribute("background", (toAbsolute ? baseUrl : "assets/") + bg.substring(idx + 7));
-                        }
-                    }
-                    var style = elms[i].getAttribute("style");
-                    if (style) {
-                        var regex = /(url\(['"]?)(?:[^"'\)]*?\/)?assets\//g;
-                        elms[i].setAttribute("style", style.replace(regex, "$1" + (toAbsolute ? baseUrl : "assets/")));
-                    }
-                }
-                
-                // 3. Update VML tags (v:fill or fill)
-                var fills = document.querySelectorAll("v\\:fill, fill");
-                for (var i = 0; i < fills.length; i++) {
-                    var src = fills[i].getAttribute("src");
-                    if (src) {
-                        var idx = src.indexOf("assets/");
-                        if (idx !== -1) {
-                            fills[i].setAttribute("src", (toAbsolute ? baseUrl : "assets/") + src.substring(idx + 7));
-                        }
-                    }
-                }
+            // Create container to serialize HTML of selection
+            var container = document.createElement("div");
+            for (var i = 0; i < selection.rangeCount; i++) {
+                container.appendChild(selection.getRangeAt(i).cloneContents());
             }
             
-            // Intercept copy event
-            document.addEventListener('copy', function() {
-                // Temporarily swap to absolute paths so the browser copies them
-                swapPaths(true);
-                
-                // Revert back to relative paths immediately after the browser finishes copying
-                setTimeout(function() {
-                    swapPaths(false);
-                }, 0);
-            });
-        })();
+            // Get all style tags in the document to prepend them,
+            // preserving design colors and layouts for the email client
+            var styles = "";
+            var styleTags = document.getElementsByTagName("style");
+            for (var i = 0; i < styleTags.length; i++) {
+                styles += styleTags[i].outerHTML;
+            }
+            
+            // Combine styles and selection HTML
+            var html = styles + container.innerHTML;
+            var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
+            
+            // Regex to convert relative or resolved file:/// paths of assets/ to raw GitHub URLs
+            var regex = /(src\s*=\s*|background\s*=\s*|url\(\s*)(["']?)(?:[^"'\)]*?\/)?assets\//g;
+            var updatedHtml = html.replace(regex, "$1$2" + baseUrl);
+            
+            // Write custom HTML and plain text back to the clipboard
+            e.clipboardData.setData('text/html', updatedHtml);
+            e.clipboardData.setData('text/plain', selection.toString());
+            
+            // Prevent default browser copy operation so it uses our custom packaged HTML
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
