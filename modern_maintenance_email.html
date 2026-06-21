@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="x-apple-disable-message-reformatting">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
     <title>Production Deployment</title>
     <!--[if mso]>
     <xml>
@@ -19,30 +21,64 @@
     </style>
     <![endif]-->
     <style>
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
         body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
         table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
         img { -ms-interpolation-mode: bicubic; }
         body { margin: 0; padding: 0; background-color: #f9fafb; width: 100% !important; }
         a { text-decoration: none; color: #111827; }
+        
         .wrapper { width: 100%; background-color: #f9fafb; table-layout: fixed; padding-bottom: 40px; }
         .main { background-color: #ffffff; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; font-family: Arial, sans-serif; color: #111827; }
+        
         @media screen and (max-width: 600px) {
             .fluid { width: 100% !important; max-width: 100% !important; display: block !important; }
             .mobile-center { text-align: center !important; }
             .mobile-pad { padding-left: 20px !important; padding-right: 20px !important; }
             .stack-column { display: block !important; width: 100% !important; margin-bottom: 15px !important; }
         }
+
+        /* Dark Mode Overrides */
+        @media (prefers-color-scheme: dark) {
+            body, .wrapper, .bg-page { background-color: #111827 !important; }
+            .bg-card, .main { background-color: #1f2937 !important; }
+            .text-primary, h1, p.text-primary, span.text-primary, li.text-primary { color: #f9fafb !important; }
+            .text-secondary { color: #d1d5db !important; }
+            .bg-warning { background-color: #422006 !important; border-color: #f59e0b !important; }
+            .text-warning { color: #fde68a !important; }
+            .bg-footer { background-color: #111827 !important; }
+            .text-footer { color: #e5e7eb !important; }
+            .border-card { border-color: #374151 !important; border-width: 1.5px !important; border-style: solid !important; }
+            .bg-icon-container { background-color: #e6f8ff !important; } /* keep light so dark icons show */
+            .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
+        }
+
+        /* Outlook specific dark mode fixes */
+        [data-ogsb] .bg-page { background-color: #111827 !important; }
+        [data-ogsb] .bg-card, [data-ogsb] .main { background-color: #1f2937 !important; }
+        [data-ogsb] .text-primary, [data-ogsc] .text-primary, [data-ogsc] h1, [data-ogsc] p.text-primary, [data-ogsc] span.text-primary, [data-ogsc] li.text-primary { color: #f9fafb !important; }
+        [data-ogsb] .text-secondary, [data-ogsc] .text-secondary { color: #d1d5db !important; }
+        [data-ogsb] .bg-warning { background-color: #422006 !important; border-color: #f59e0b !important; }
+        [data-ogsb] .text-warning, [data-ogsc] .text-warning { color: #fde68a !important; }
+        [data-ogsb] .bg-footer { background-color: #111827 !important; }
+        [data-ogsb] .text-footer, [data-ogsc] .text-footer { color: #e5e7eb !important; }
+        [data-ogsb] .border-card { border-color: #374151 !important; border-width: 1.5px !important; border-style: solid !important; }
+        [data-ogsb] .bg-icon-container { background-color: #e6f8ff !important; }
+        [data-ogsb] .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f9fafb;">
-    <center class="wrapper" style="width: 100%; table-layout: fixed; background-color: #f9fafb; padding-top: 40px; padding-bottom: 40px;">
+<body class="bg-page" style="margin: 0; padding: 0; background-color: #f9fafb;">
+    <center class="wrapper bg-page" style="width: 100%; table-layout: fixed; background-color: #f9fafb; padding-top: 40px; padding-bottom: 40px;">
         <!--[if mso]>
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="width:600px;">
+        <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="width:600px;">
         <tr>
         <td valign="top">
         <![endif]-->
         
-        <table class="main" width="100%" max-width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="background-color: #ffffff; max-width: 600px; margin: 0 auto; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <table role="presentation" class="main bg-card" width="100%" max-width="600" align="center" border="0" cellpadding="0" cellspacing="0" style="background-color: #ffffff; max-width: 600px; margin: 0 auto; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             
             <!-- HERO SECTION -->
             <tr>
@@ -52,16 +88,16 @@
                         <v:fill type="tile" src="https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png" color="#03194B" />
                         <v:textbox inset="0,0,0,0">
                     <![endif]-->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" background="https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png" style="background-image: url('https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png'); background-color: #03194B; background-position: center; background-size: cover;">
+                    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" background="https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png" style="background-image: url('https://raw.githubusercontent.com/amahdy59/email/main/assets/hero-bg.png'); background-color: #03194B; background-position: center; background-size: cover;">
                         <tr>
                             <td class="mobile-pad" align="left" valign="middle" style="padding: 40px 32px;">
-                                <table border="0" cellpadding="0" cellspacing="0">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td valign="top" style="padding-right: 16px;">
-                                            <table border="0" cellpadding="0" cellspacing="0" style="background-color: rgba(255,255,255,0.1); border-radius: 50%;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="background-color: rgba(255,255,255,0.1); border-radius: 50%;">
                                                 <tr>
                                                     <td style="padding: 12px;">
-                                                        <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-server.svg" width="24" height="24" alt="Server" style="display: block; width: 24px; height: 24px;">
+                                                        <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-server.svg" width="24" height="24" alt="Server Icon" style="display: block; width: 24px; height: 24px;">
                                                     </td>
                                                 </tr>
                                             </table>
@@ -91,72 +127,72 @@
                 <td class="mobile-pad" align="center" valign="top" style="padding: 40px 48px;">
                     
                     <!-- MAINTENANCE DETAILS -->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+                    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
                         <tr>
                             <td align="left" style="padding-bottom: 16px;">
-                                <span style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #111827; letter-spacing: 1px;">MAINTENANCE DETAILS</span>
+                                <span class="text-primary" style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #111827; letter-spacing: 1px;">MAINTENANCE DETAILS</span>
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <!-- DATE -->
                                         <td class="stack-column" width="31%" align="center" valign="top">
-                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
+                                            <table role="presentation" class="border-card bg-card" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
                                                     <td align="center" style="padding: 16px 12px;">
-                                                        <table border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
+                                                        <table role="presentation" class="bg-icon-container" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
                                                             <tr>
                                                                 <td style="padding: 8px;">
-                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-calendar.svg" width="24" height="24" alt="Date" style="display: block; width: 24px; height: 24px;">
+                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-calendar.svg" width="24" height="24" alt="Calendar Icon" style="display: block; width: 24px; height: 24px;">
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">DATE</p>
-                                                        <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">June 09, 2026</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">DATE</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">June 09, 2026</p>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                         
-                                        <td class="stack-column" width="3%" style="width: 3%; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                                        <td class="stack-column" width="3%" style="width: 3%; font-size: 1px; line-height: 1px;" aria-hidden="true">&nbsp;</td>
                                         
                                         <!-- TIME -->
                                         <td class="stack-column" width="31%" align="center" valign="top">
-                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
+                                            <table role="presentation" class="border-card bg-card" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
                                                     <td align="center" style="padding: 16px 12px;">
-                                                        <table border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
+                                                        <table role="presentation" class="bg-icon-container" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
                                                             <tr>
                                                                 <td style="padding: 8px;">
-                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-clock.svg" width="24" height="24" alt="Time" style="display: block; width: 24px; height: 24px;">
+                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-clock.svg" width="24" height="24" alt="Clock Icon" style="display: block; width: 24px; height: 24px;">
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">TIME</p>
-                                                        <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">02:00 PM</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">TIME</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">02:00 PM</p>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                         
-                                        <td class="stack-column" width="3%" style="width: 3%; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                                        <td class="stack-column" width="3%" style="width: 3%; font-size: 1px; line-height: 1px;" aria-hidden="true">&nbsp;</td>
                                         
                                         <!-- DOWNTIME -->
                                         <td class="stack-column" width="32%" align="center" valign="top">
-                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
+                                            <table role="presentation" class="border-card bg-card" width="100%" border="0" cellpadding="0" cellspacing="0" style="border: 1.5px solid #e2f6ff; border-radius: 8px; background-color: #ffffff;">
                                                 <tr>
                                                     <td align="center" style="padding: 16px 12px;">
-                                                        <table border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
+                                                        <table role="presentation" class="bg-icon-container" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 12px;">
                                                             <tr>
                                                                 <td style="padding: 8px;">
-                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-hourglass.svg" width="24" height="24" alt="Downtime" style="display: block; width: 24px; height: 24px;">
+                                                                    <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-hourglass.svg" width="24" height="24" alt="Hourglass Icon" style="display: block; width: 24px; height: 24px;">
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">DOWNTIME</p>
-                                                        <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">30 minutes</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #111827; letter-spacing: 0.5px;">DOWNTIME</p>
+                                                        <p class="text-primary" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827;">30 minutes</p>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -168,17 +204,17 @@
                     </table>
 
                     <!-- WARNING BLOCK -->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px; background-color: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 8px; border-left: 6px solid #f59e0b;">
+                    <table role="presentation" class="bg-warning" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px; background-color: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 8px; border-left: 6px solid #f59e0b;">
                         <tr>
                             <td align="left" valign="top" style="padding: 20px;">
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td width="30" valign="top" style="padding-right: 12px;">
-                                            <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-warning.svg" width="24" height="24" alt="Warning" style="display: block; width: 24px; height: 24px;">
+                                            <img src="https://raw.githubusercontent.com/amahdy59/email/main/assets/icon-warning.svg" width="24" height="24" alt="Warning Icon" style="display: block; width: 24px; height: 24px;">
                                         </td>
                                         <td valign="top">
-                                            <p style="margin: 0; padding: 0 0 6px 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #78350f;">Service Impact</p>
-                                            <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 14px; color: #111827; line-height: 1.4;">Live sites will be unavailable during the maintenance window.</p>
+                                            <p class="text-warning" style="margin: 0; padding: 0 0 6px 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #78350f;">Service Impact</p>
+                                            <p class="text-primary" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 14px; color: #111827; line-height: 1.4;">Live sites will be unavailable during the maintenance window.</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -187,32 +223,32 @@
                     </table>
 
                     <!-- RELEASE NOTES -->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 40px;">
+                    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 40px;">
                         <tr>
                             <td align="left" style="padding-bottom: 16px;">
-                                <span style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #111827; letter-spacing: 1px;">RELEASE NOTES</span>
+                                <span class="text-primary" style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #111827; letter-spacing: 1px;">RELEASE NOTES</span>
                             </td>
                         </tr>
                         <tr>
                             <td align="left">
                                 <ul style="margin: 0; padding-left: 20px; font-family: Arial, sans-serif; font-size: 14px; color: #111827; line-height: 1.6;">
-                                    <li style="margin-bottom: 8px;">Bug fixes and stability improvements.</li>
-                                    <li style="margin-bottom: 8px;">Upload files feature in finance dashboard</li>
-                                    <li style="margin-bottom: 0;">Projects data fix in Customer Survey tool</li>
+                                    <li class="text-primary" style="margin-bottom: 8px; color: #111827;">Bug fixes and stability improvements.</li>
+                                    <li class="text-primary" style="margin-bottom: 8px; color: #111827;">Upload files feature in finance dashboard</li>
+                                    <li class="text-primary" style="margin-bottom: 0; color: #111827;">Projects data fix in Customer Survey tool</li>
                                 </ul>
                             </td>
                         </tr>
                     </table>
 
                     <!-- CLOSING -->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px; background-color: #f0fbff; border: 1px solid #c0eeff; border-radius: 12px;">
+                    <table role="presentation" class="bg-closing" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px; background-color: #f0fbff; border: 1px solid #c0eeff; border-radius: 12px;">
                         <tr>
                             <td align="center" style="padding: 24px;">
-                                <p style="margin: 0; padding: 0 0 12px 0; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #111827;">Thank You</p>
-                                <p style="margin: 0 auto; padding: 0 0 16px 0; font-family: Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5; max-width: 400px; text-align: center;">
+                                <p class="text-primary" style="margin: 0; padding: 0 0 12px 0; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #111827;">Thank You</p>
+                                <p class="text-secondary" style="margin: 0 auto; padding: 0 0 16px 0; font-family: Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5; max-width: 400px; text-align: center;">
                                     We appreciate your patience and cooperation as we work to improve our services.
                                 </p>
-                                <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">
+                                <p class="text-primary" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">
                                     Sincerely, Advansys IE. Team
                                 </p>
                             </td>
@@ -220,11 +256,11 @@
                     </table>
 
                     <!-- FOOTER -->
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; border-radius: 8px;">
+                    <table role="presentation" class="bg-footer" width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; border-radius: 8px;">
                         <tr>
                             <td align="center" style="padding: 16px;">
-                                <p style="margin: 0; padding: 0 0 6px 0; font-family: Arial, sans-serif; font-size: 12px; color: #374151;">Automated notification - do not reply directly.</p>
-                                <p style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 12px; color: #374151;">&copy; 2026 Advansys IE. All rights reserved.</p>
+                                <p class="text-footer" style="margin: 0; padding: 0 0 6px 0; font-family: Arial, sans-serif; font-size: 12px; color: #374151;">Automated notification - do not reply directly.</p>
+                                <p class="text-footer" style="margin: 0; padding: 0; font-family: Arial, sans-serif; font-size: 12px; color: #374151;">&copy; 2026 Advansys IE. All rights reserved.</p>
                             </td>
                         </tr>
                     </table>
