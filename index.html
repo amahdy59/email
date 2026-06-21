@@ -315,17 +315,22 @@
         <![endif]-->
     </center>
     <script>
-        // Clean DOM manipulation instead of innerHTML replace to avoid corrupting code.
+        // Copy event listener that swaps relative/local paths to absolute GitHub paths
+        // on the clipboard HTML so that pasting into Gmail/Outlook works flawlessly,
+        // while preserving local preview rendering offline.
         (function() {
-            if (navigator.onLine) {
-                var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
-                
+            var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
+            
+            function swapPaths(toAbsolute) {
                 // 1. Update img elements
                 var imgs = document.getElementsByTagName("img");
                 for (var i = 0; i < imgs.length; i++) {
                     var src = imgs[i].getAttribute("src");
-                    if (src && src.indexOf("assets/") === 0) {
-                        imgs[i].setAttribute("src", src.replace("assets/", baseUrl));
+                    if (src) {
+                        var idx = src.indexOf("assets/");
+                        if (idx !== -1) {
+                            imgs[i].setAttribute("src", (toAbsolute ? baseUrl : "assets/") + src.substring(idx + 7));
+                        }
                     }
                 }
                 
@@ -333,12 +338,16 @@
                 var elms = document.querySelectorAll("table, td");
                 for (var i = 0; i < elms.length; i++) {
                     var bg = elms[i].getAttribute("background");
-                    if (bg && bg.indexOf("assets/") === 0) {
-                        elms[i].setAttribute("background", bg.replace("assets/", baseUrl));
+                    if (bg) {
+                        var idx = bg.indexOf("assets/");
+                        if (idx !== -1) {
+                            elms[i].setAttribute("background", (toAbsolute ? baseUrl : "assets/") + bg.substring(idx + 7));
+                        }
                     }
                     var style = elms[i].getAttribute("style");
-                    if (style && style.indexOf("assets/") !== -1) {
-                        elms[i].setAttribute("style", style.replace(/assets\//g, baseUrl));
+                    if (style) {
+                        var regex = /(url\(['"]?)(?:[^"'\)]*?\/)?assets\//g;
+                        elms[i].setAttribute("style", style.replace(regex, "$1" + (toAbsolute ? baseUrl : "assets/")));
                     }
                 }
                 
@@ -346,11 +355,25 @@
                 var fills = document.querySelectorAll("v\\:fill, fill");
                 for (var i = 0; i < fills.length; i++) {
                     var src = fills[i].getAttribute("src");
-                    if (src && src.indexOf("assets/") === 0) {
-                        fills[i].setAttribute("src", src.replace("assets/", baseUrl));
+                    if (src) {
+                        var idx = src.indexOf("assets/");
+                        if (idx !== -1) {
+                            fills[i].setAttribute("src", (toAbsolute ? baseUrl : "assets/") + src.substring(idx + 7));
+                        }
                     }
                 }
             }
+            
+            // Intercept copy event
+            document.addEventListener('copy', function() {
+                // Temporarily swap to absolute paths so the browser copies them
+                swapPaths(true);
+                
+                // Revert back to relative paths immediately after the browser finishes copying
+                setTimeout(function() {
+                    swapPaths(false);
+                }, 0);
+            });
         })();
     </script>
 </body>
