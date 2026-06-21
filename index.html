@@ -57,7 +57,7 @@
             body, .wrapper, .bg-page { background-color: #111827 !important; }
             .bg-card, .main { background-color: #1f2937 !important; }
             .text-primary, h1, p.text-primary, span.text-primary, li.text-primary { color: #f9fafb !important; }
-            .text-secondary { color: #d1d5db !important; }
+            .text-secondary { color: #e5e7eb !important; }
             .bg-warning { background-color: #422006 !important; border-color: #f59e0b !important; }
             .text-warning { color: #fde68a !important; }
             .bg-footer { background-color: #111827 !important; border-top: 1px solid #374151 !important; }
@@ -65,6 +65,7 @@
             .border-card, .border-main { border-color: #374151 !important; border-width: 1px !important; border-style: solid !important; }
             .bg-icon-container { background-color: #0f172a !important; } 
             .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
+            .border-top-separator { border-top: 1px solid #374151 !important; }
             
             /* Swap Icons for Dark Mode */
             .light-img { display: none !important; mso-hide: all !important; }
@@ -75,7 +76,7 @@
         [data-ogsb] .bg-page { background-color: #111827 !important; }
         [data-ogsb] .bg-card, [data-ogsb] .main { background-color: #1f2937 !important; }
         [data-ogsb] .text-primary, [data-ogsc] .text-primary, [data-ogsc] h1, [data-ogsc] p.text-primary, [data-ogsc] span.text-primary, [data-ogsc] li.text-primary { color: #f9fafb !important; }
-        [data-ogsb] .text-secondary, [data-ogsc] .text-secondary { color: #d1d5db !important; }
+        [data-ogsb] .text-secondary, [data-ogsc] .text-secondary { color: #e5e7eb !important; }
         [data-ogsb] .bg-warning { background-color: #422006 !important; border-color: #f59e0b !important; }
         [data-ogsb] .text-warning, [data-ogsc] .text-warning { color: #fde68a !important; }
         [data-ogsb] .bg-footer { background-color: #111827 !important; border-top: 1px solid #374151 !important; }
@@ -83,6 +84,7 @@
         [data-ogsb] .border-card, [data-ogsb] .border-main { border-color: #374151 !important; border-width: 1px !important; border-style: solid !important; }
         [data-ogsb] .bg-icon-container { background-color: #0f172a !important; }
         [data-ogsb] .bg-closing { background-color: #1f2937 !important; border-color: #374151 !important; }
+        [data-ogsb] .border-top-separator { border-top: 1px solid #374151 !important; }
         
         /* Swap Icons for Outlook Dark Mode */
         [data-ogsb] .light-img { display: none !important; mso-hide: all !important; }
@@ -121,9 +123,9 @@
                                             <table role="presentation" width="48" height="48" border="0" cellpadding="0" cellspacing="0" style="background-color: rgba(255,255,255,0.15); border-radius: 50%;">
                                                 <tr>
                                                     <td align="center" valign="middle" width="48" height="48" style="padding: 0;">
-                                                        <img src="assets/hero-server.svg" width="24" height="24" alt="Server" style="display:block;" class="light-img" />
+                                                        <img src="assets/hero-server.svg" width="24" height="24" alt="" aria-hidden="true" style="display:block;" class="light-img" />
                                                         <!--[if !mso]><!-->
-                                                        <img src="assets/hero-server-dark.svg" width="24" height="24" alt="Server" style="display:none; mso-hide:all;" class="dark-img" />
+                                                        <img src="assets/hero-server-dark.svg" width="24" height="24" alt="" aria-hidden="true" style="display:none; mso-hide:all;" class="dark-img" />
                                                         <!--<![endif]-->
                                                     </td>
                                                 </tr>
@@ -157,7 +159,7 @@
                     <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
                         <tr>
                             <td align="left" style="padding-bottom: 16px;">
-                                <span class="text-primary" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">Maintenance Details</span>
+                                <h2 class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">Maintenance Details</h2>
                             </td>
                         </tr>
                         <tr>
@@ -172,14 +174,14 @@
                                                         <table role="presentation" class="bg-icon-container" width="40" height="40" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 8px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="40" height="40" style="padding: 0;">
-                                                                    <img src="assets/hero-calendar.svg" width="20" height="20" alt="Calendar" style="display:block;" class="light-img" />
+                                                                    <img src="assets/hero-calendar.svg" width="20" height="20" alt="" aria-hidden="true" style="display:block;" class="light-img" />
                                                                     <!--[if !mso]><!-->
-                                                                    <img src="assets/hero-calendar-dark.svg" width="20" height="20" alt="Calendar" style="display:none; mso-hide:all;" class="dark-img" />
+                                                                    <img src="assets/hero-calendar-dark.svg" width="20" height="20" alt="" aria-hidden="true" style="display:none; mso-hide:all;" class="dark-img" />
                                                                     <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #4b5563;">Date</p>
+                                                        <p class="text-secondary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #1f2937;">Date</p>
                                                         <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827; line-height: 1.4;">June 09, 2026</p>
                                                     </td>
                                                 </tr>
@@ -196,14 +198,14 @@
                                                         <table role="presentation" class="bg-icon-container" width="40" height="40" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 8px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="40" height="40" style="padding: 0;">
-                                                                    <img src="assets/hero-clock.svg" width="20" height="20" alt="Clock" style="display:block;" class="light-img" />
+                                                                    <img src="assets/hero-clock.svg" width="20" height="20" alt="" aria-hidden="true" style="display:block;" class="light-img" />
                                                                     <!--[if !mso]><!-->
-                                                                    <img src="assets/hero-clock-dark.svg" width="20" height="20" alt="Clock" style="display:none; mso-hide:all;" class="dark-img" />
+                                                                    <img src="assets/hero-clock-dark.svg" width="20" height="20" alt="" aria-hidden="true" style="display:none; mso-hide:all;" class="dark-img" />
                                                                     <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #4b5563;">Time</p>
+                                                        <p class="text-secondary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #1f2937;">Time</p>
                                                         <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827; line-height: 1.4;">02:00 PM</p>
                                                     </td>
                                                 </tr>
@@ -220,14 +222,14 @@
                                                         <table role="presentation" class="bg-icon-container" width="40" height="40" border="0" cellpadding="0" cellspacing="0" style="background-color: #e6f8ff; border-radius: 50%; margin-bottom: 8px;">
                                                             <tr>
                                                                 <td align="center" valign="middle" width="40" height="40" style="padding: 0;">
-                                                                    <img src="assets/hero-hourglass.svg" width="20" height="20" alt="Hourglass" style="display:block;" class="light-img" />
+                                                                    <img src="assets/hero-hourglass.svg" width="20" height="20" alt="" aria-hidden="true" style="display:block;" class="light-img" />
                                                                     <!--[if !mso]><!-->
-                                                                    <img src="assets/hero-hourglass-dark.svg" width="20" height="20" alt="Hourglass" style="display:none; mso-hide:all;" class="dark-img" />
+                                                                    <img src="assets/hero-hourglass-dark.svg" width="20" height="20" alt="" aria-hidden="true" style="display:none; mso-hide:all;" class="dark-img" />
                                                                     <!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        <p class="text-primary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #4b5563;">Downtime</p>
+                                                        <p class="text-secondary" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 500; color: #1f2937;">Downtime</p>
                                                         <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; color: #111827; line-height: 1.4;">30 minutes</p>
                                                     </td>
                                                 </tr>
@@ -242,18 +244,18 @@
                     <!-- WARNING BLOCK -->
                     <table role="presentation" class="bg-warning hover-lift" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px; background-color: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; border-left: 6px solid #f59e0b;">
                         <tr>
-                                                            <td align="left" valign="top" style="padding: 16px 24px;">
-                                                                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                                    <tr>
-                                                                        <td width="32" valign="middle" style="padding-right: 16px;">
-                                                                            <img src="assets/hero-warning.svg" width="32" height="32" alt="Warning" style="display:block;" class="light-img" />
-                                                                            <!--[if !mso]><!-->
-                                                                            <img src="assets/hero-warning-dark.svg" width="32" height="32" alt="Warning" style="display:none; mso-hide:all;" class="dark-img" />
-                                                                            <!--<![endif]-->
-                                                                        </td>
-                                                                        <td valign="top">
-                                                                            <p class="text-warning" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #78350f; line-height: 1.5;">Service Impact</p>
-                                                                            <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; color: #111827; line-height: 1.5;">Live sites will be unavailable during the maintenance window.</p>
+                            <td align="left" valign="top" style="padding: 16px 24px;">
+                                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="32" valign="middle" style="padding-right: 16px;">
+                                            <img src="assets/hero-warning.svg" width="32" height="32" alt="" aria-hidden="true" style="display:block;" class="light-img" />
+                                            <!--[if !mso]><!-->
+                                            <img src="assets/hero-warning-dark.svg" width="32" height="32" alt="" aria-hidden="true" style="display:none; mso-hide:all;" class="dark-img" />
+                                            <!--<![endif]-->
+                                        </td>
+                                        <td valign="top">
+                                            <p class="text-warning" style="margin: 0; padding: 0 0 4px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #78350f; line-height: 1.5;">Service Impact</p>
+                                            <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; color: #111827; line-height: 1.5;">Live sites will be unavailable during the maintenance window.</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -261,11 +263,14 @@
                         </tr>
                     </table>
 
+                    <!-- DIVIDER -->
+                    <hr class="border-card" style="border: 0; border-top: 1px solid #e5e7eb; margin: 0 0 24px 0;" />
+
                     <!-- RELEASE NOTES -->
                     <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px;">
                         <tr>
                             <td align="left" style="padding-bottom: 16px;">
-                                <span class="text-primary" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">Release Notes</span>
+                                <h2 class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #111827;">Release Notes</h2>
                             </td>
                         </tr>
                         <tr>
@@ -280,6 +285,17 @@
                         </tr>
                     </table>
 
+                    <!-- CTA BUTTON -->
+                    <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 32px;">
+                        <tr>
+                            <td align="center">
+                                <a href="https://status.advansys-is.com" target="_blank" class="hover-lift" style="display: inline-block; background-color: #2563eb; color: #ffffff; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; padding: 12px 32px; border-radius: 6px; text-decoration: none; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);">
+                                    Check System Status
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
                     <!-- CLOSING -->
                     <table role="presentation" class="bg-closing" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 24px; background-color: #f0fbff; border: 1px solid #c0eeff; border-radius: 8px;">
                         <tr>
@@ -288,8 +304,11 @@
                                 <p class="text-secondary" style="margin: 0 auto; padding: 0 0 12px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; color: #374151; line-height: 1.5; max-width: 400px; text-align: center;">
                                     We appreciate your patience and cooperation as we work to improve our services.
                                 </p>
-                                <p class="text-primary" style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #111827; line-height: 1.5;">
+                                <p class="text-primary" style="margin: 0; padding: 0 0 12px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #111827; line-height: 1.5;">
                                     Sincerely, Advansys IS Software Team
+                                </p>
+                                <p class="text-secondary border-top-separator" style="margin: 12px auto 0 auto; padding: 12px 0 0 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #374151; line-height: 1.5; border-top: 1px solid #c0eeff; max-width: 320px; text-align: center;">
+                                    Questions? Contact the IT Helpdesk at <a href="mailto:support@advansys-is.com" class="text-secondary" style="color: #2563eb; text-decoration: underline;">support@advansys-is.com</a>
                                 </p>
                             </td>
                         </tr>
