@@ -245,10 +245,10 @@
                             <td align="left" valign="top" style="padding: 16px 20px;">
                                 <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td width="30" valign="top" style="padding-right: 12px;">
-                                            <img src="assets/hero-warning.svg" width="24" height="24" alt="Warning" style="display:block;" class="light-img" />
+                                        <td width="32" valign="middle" style="padding-right: 16px;">
+                                            <img src="assets/hero-warning.svg" width="32" height="32" alt="Warning" style="display:block;" class="light-img" />
                                             <!--[if !mso]><!-->
-                                            <img src="assets/hero-warning-dark.svg" width="24" height="24" alt="Warning" style="display:none; mso-hide:all;" class="dark-img" />
+                                            <img src="assets/hero-warning-dark.svg" width="32" height="32" alt="Warning" style="display:none; mso-hide:all;" class="dark-img" />
                                             <!--<![endif]-->
                                         </td>
                                         <td valign="top">
@@ -315,14 +315,43 @@
         <![endif]-->
     </center>
     <script>
-        // If the browser is online, dynamically convert relative asset paths to absolute GitHub raw paths.
-        // This ensures that when you select and copy the email from the browser, the clipboard contains
-        // absolute URLs, allowing online email clients (like Gmail and Outlook) to display the graphics.
-        // If you are offline, it retains relative paths so that the local preview renders assets correctly.
-        if (navigator.onLine) {
-            var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
-            document.body.innerHTML = document.body.innerHTML.replace(/assets\//g, baseUrl);
-        }
+        // Clean DOM manipulation instead of innerHTML replace to avoid corrupting code.
+        (function() {
+            if (navigator.onLine) {
+                var baseUrl = "https://raw.githubusercontent.com/amahdy59/email/main/assets/";
+                
+                // 1. Update img elements
+                var imgs = document.getElementsByTagName("img");
+                for (var i = 0; i < imgs.length; i++) {
+                    var src = imgs[i].getAttribute("src");
+                    if (src && src.indexOf("assets/") === 0) {
+                        imgs[i].setAttribute("src", src.replace("assets/", baseUrl));
+                    }
+                }
+                
+                // 2. Update table and td elements
+                var elms = document.querySelectorAll("table, td");
+                for (var i = 0; i < elms.length; i++) {
+                    var bg = elms[i].getAttribute("background");
+                    if (bg && bg.indexOf("assets/") === 0) {
+                        elms[i].setAttribute("background", bg.replace("assets/", baseUrl));
+                    }
+                    var style = elms[i].getAttribute("style");
+                    if (style && style.indexOf("assets/") !== -1) {
+                        elms[i].setAttribute("style", style.replace(/assets\//g, baseUrl));
+                    }
+                }
+                
+                // 3. Update VML tags (v:fill or fill)
+                var fills = document.querySelectorAll("v\\:fill, fill");
+                for (var i = 0; i < fills.length; i++) {
+                    var src = fills[i].getAttribute("src");
+                    if (src && src.indexOf("assets/") === 0) {
+                        fills[i].setAttribute("src", src.replace("assets/", baseUrl));
+                    }
+                }
+            }
+        })();
     </script>
 </body>
 </html>
